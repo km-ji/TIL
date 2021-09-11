@@ -1,0 +1,41 @@
+#problem
+package chap09.sec01.programming03;
+
+//import java.util.StringTokenizer;
+
+//public class Tokenprint {
+//	public static void main(String[] args) {
+//		String str="of the people, by the people, for the people";
+//		String token;
+//		StringTokenizer st=new StringTokenizer(str, ",");
+//		while(true) {
+//			token=st.nextToken();
+//			System.out.println(token);
+//		}
+//	}
+//}
+
+#correct
+package chap09.sec01.programming03;
+
+import java.util.StringTokenizer;
+import java.util.NoSuchElementException;
+
+public class TokenprintTest {
+	public static void main(String[] args) {
+		String str="of the people, by the people, for the people";
+		String token;
+		StringTokenizer st=new StringTokenizer(str," ,"); //token을 blank나 콤마로 찍어달라고 한 것
+		while(true) {
+			try {
+				token=st.nextToken();
+			}
+			catch(NoSuchElementException ne) {
+				break;
+			}
+			System.out.println(token);
+		}
+		System.out.println("프로그램 종료");
+	}
+}
+
