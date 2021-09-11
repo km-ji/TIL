@@ -1,0 +1,17 @@
+package chap09.sec01;
+
+//public class CheckedDemo {
+//	public static void main(String[] args) {
+//		Thread.sleep(100); //1000이 되어야 1초를 쉬는 것
+//	}
+//}
+
+public class CheckedDemo{
+	public static void main(String[] args) {
+		try {
+			Thread.sleep(100);
+		} catch(InterruptedException ie) {
+			System.out.println(ie.toString());
+		}
+	}
+}
