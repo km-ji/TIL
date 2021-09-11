@@ -1,0 +1,84 @@
+#1
+#problem
+package chap09.sec01;
+
+import java.util.Scanner;
+
+public class ThrowsDemo01 {
+	public static void main(String[] args ) {
+		Scanner in=new Scanner(System.in);
+		square(in.nextLine());
+		
+	}
+	//Integer.parseInt()메서드는 NumberFormatException 예외를 발생 시킴
+	private static void square(String s) {
+		int n=Integer.parseInt(s);
+		System.out.println(n*n);
+	}
+}
+
+#correct
+package chap09.sec01;
+
+import java.util.Scanner;
+
+public class ThrowsDemo01_correct {
+	public static void main(String[] args) {
+		Scanner in=new Scanner(System.in);
+		try {
+			//square() 메서드에서 예외가 발생하면 이곳에서 예외 처리
+			square(in.nextLine());
+		} catch(NumberFormatException e) {
+			System.out.println("정수가 아닙니다.");
+		}
+	}
+	//호출한 메서드에서 예외처리를 하도록 떠넘김
+	private static void square(String s) throws NumberFormatException{
+		//s가 숫자 문자열이 아니면 NumberFormatException 예외 발생
+		int n=Integer.parseInt(s);
+		System.out.println(n*n);
+	}
+}
+
+
+#2
+#problem
+package chap09.sec01;
+
+public class ThrowsDemo02 {
+	public static void main(String[] args) {
+		findClass();
+	}
+
+
+//findClass() 메서드는 try~catch 구문을 작성하지 않고
+//여기서 발생할 예외를 findClass() 메서드를 호출 한 곳에서 try~catch구문을 작성함
+
+	private static void findClass() {
+		Class clazz=Class.forName("java.lang.String2");
+	}
+}
+
+#correct
+package chap09.sec01;
+
+public class ThrowsDemo02_correct {
+	public static void main(String[] args) {
+		//findClass() 메서드 호출한 곳에서 예외처리코드 작성
+		try {
+			findClass();
+		} catch(ClassNotFoundException e) {
+			System.out.println("클래스가 존재하지 않습니다.");
+			//몇번째 줄에서 어떤 예외가 발생했는지 알 수 있음
+			e.printStackTrace();
+		} 
+	}
+	
+	//findClass() 메서드에서는 try~catch 구문을 작성하지 않고
+	//여기서 발생할 예외를 findClass() 메서드를 호출한 곳에서 try~catch 구문을 작성함
+	
+	private static void findClass() throws ClassNotFoundException{
+		Class clazz=Class.forName("java.lang.String2");
+	}
+}
+
