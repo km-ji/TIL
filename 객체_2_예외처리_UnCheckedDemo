@@ -42,7 +42,7 @@ public class UnCheckedDemo01_correct {
 	}
 }
 
-#correct2
+#correct_2
 package chap09.sec01;
 
 import java.util.StringTokenizer;
