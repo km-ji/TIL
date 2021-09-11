@@ -1,0 +1,79 @@
+#AccountExample
+package chap09.sec01.Exception;
+
+class Account{
+	private long balance;
+	public Account() {}
+	public long getBalance() {
+		return balance;
+	}
+	public void deposit(int money) {
+		balance+=money;
+	}
+	public void withdraw(int money) throws BalanceInsufficientException{
+		if (balance<money) {
+			//사용자 정의 예외 발생
+			throw new BalanceInsufficientException("잔고부족: "+(money-balance)+"모자람");
+		}
+		balance-=money;
+	}
+}
+
+//사용자 정의 예외클래스
+class BalanceInsufficientException extends Exception{
+	public BalanceInsufficientException(String message) {
+		super(message);
+	}
+}
+
+
+public class AccountExample {
+	public static void main(String[] args) {
+		Account account=new Account();
+		account.deposit(10000);//예금하기
+		System.out.println("예금액 : "+account.getBalance());
+		try {
+			account.withdraw(30000);//출금하기
+		} catch(BalanceInsufficientException e) {
+			String message=e.getMessage();
+			System.out.println(message);
+			System.out.println();
+			e.printStackTrace();
+		}
+	}
+}
+
+
+#UserMadeException
+package chap09.sec01.Exception;
+
+import java.util.Scanner;
+
+public class UserMadeException {
+	public static void main(String[] args ) {
+		System.out.println("나이를 입력하세요 : ");
+		int age;
+		try {
+			age=readAge();
+			System.out.println("입력하신 나이는 "+age+"입니다. ");
+		} catch(AgeInputException ae) {
+			System.out.println(ae.toString());
+		} System.out.println("프로그램 종료");
+	}
+	
+	private static int readAge() throws AgeInputException{
+		Scanner keyboard =new Scanner(System.in);
+		int age=keyboard.nextInt();
+		if(age<0) {
+			throw new AgeInputException();
+		}
+		return age;
+	}
+}
+
+class AgeInputException extends Exception{
+	public AgeInputException() {
+		super("유효하지 않은 나이가 입력되었습니다.");
+	}
+}
+
