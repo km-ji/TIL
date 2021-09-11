@@ -1,7 +1,6 @@
 #UnChedDemo_1
 
 #problem
-
 package chap09.sec01;
 
 import java.util.StringTokenizer;
@@ -66,5 +65,35 @@ public class UnCheckedDemo01_correct2 {
 	}
 }
 
+
+#UncheckedDemo_2
+#problem
+package chap09.sec01;
+
+public class UnChecked2Demo {
+	public static void main(String[] args) {
+		int[] array= {0,1,2};
+		//범위를 벗어난 인덱스 사용해 예외 발생
+		System.out.println(array[3]);
+	}
+}
+
+#correct
+package chap09.sec01;
+
+public class UnCheckedDemo02 {
+	public static void main(String[] args ) {
+		int[] array= {0,1,2};
+		//범위를 벗어난 인덱스를 사용해 예외 발생
+		
+		try {
+			for (int i=0;i<=3;i++) {
+				System.out.println(array[i]);
+			}
+		} catch(ArrayIndexOutOfBoundsException ae) {
+			System.out.println("ae.getMessage()="+ae.getMessage()); //객체가 갖고 있는 에러 정보를 찍어달라는 것
+		}
+	}
+}
 
 
