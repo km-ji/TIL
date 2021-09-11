@@ -1,0 +1,70 @@
+#UnChedDemo_1
+
+#problem
+
+package chap09.sec01;
+
+import java.util.StringTokenizer;
+
+public class UnChecked1Demo {
+	public static void main(String[] args ) {
+		String s="Time is money";
+		StringTokenizer st=new StringTokenizer(s);
+		
+		while(st.hasMoreTokens()) {
+			System.out.print(st.nextToken()+"+");
+		}
+		//더 이상 가져올 토큰이 없어 예외 발생
+		System.out.print(st.nextToken());
+	}
+}
+
+#correct_1
+package chap09.sec01;
+
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+
+public class UnCheckedDemo01_correct {
+	public static void main(String[] args) {
+		String s="Time is money";
+		StringTokenizer st=new StringTokenizer(s);
+		while(st.hasMoreTokens()) {
+			System.out.print(st.nextToken()+"+");
+		}
+		//더 이상 가져올 토큰이 없으면 예외를 발생시킴
+		try {
+			System.out.print(st.nextToken());
+		} catch(NoSuchElementException ne) {
+			System.out.println(ne.getMessage());
+		}
+		System.out.println("정상종료");
+	}
+}
+
+#correct2
+package chap09.sec01;
+
+import java.util.StringTokenizer;
+
+public class UnCheckedDemo01_correct2 {
+	public static void main(String[] args) {
+		String str="Time is money";
+		StringTokenizer st=new StringTokenizer(str);
+		try {
+			while(st.hasMoreTokens()) {
+				System.out.print(st.nextToken()+"+");
+			}
+			System.out.println(st.nextToken());
+		} catch(Exception e) {
+			System.out.println("e.getMessage()= "+e.getMessage());//가장 간단한 예외사항 정보
+			System.out.println("e.toString()= "+e.toString());
+			System.out.println("e.printStackTrace() =" );
+			e.printStackTrace();//가장 상세정보 제공
+		}
+		System.out.println("예외 발생 처리 후"); //정상종료
+	}
+}
+
+
+
