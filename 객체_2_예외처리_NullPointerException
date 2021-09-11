@@ -1,0 +1,37 @@
+#problem
+package chap09.sec01.programming01;
+
+//class MyDate{
+//	int year=2035;
+//	int month=12;
+//	int day=25;
+//}
+
+//public class NullPointerException {
+//	public static void main(String[] args) {
+//		MyDate d=null;
+//		System.out.printf("%d년 %d월 %d일\n", d.year, d.month, d.day);
+//	}
+//}
+
+#correct
+package chap09.sec01.programming01;
+
+class MyDate{
+	int year=2035;
+	int month=12;
+	int day=25;
+}
+
+public class NullPointerExceptionTest {
+	public static void main(String[] args ) {
+		MyDate d=null;
+		try {
+			//d=new MyDate(); //주석처리빼고 넣으면 정상처리됨 "2035년 12월 25일"
+			System.out.printf("%d년 %d월 %d일\n",d.year,d.month,d.day);
+		} catch (NullPointerException e) {
+			System.out.println("e.getMessage()= "+e.getMessage());
+		}
+	}
+}
+
