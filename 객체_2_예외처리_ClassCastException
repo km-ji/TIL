@@ -1,0 +1,53 @@
+#problem
+package chap09.sec01.programming02;
+
+//class Shape{
+	
+//}
+//class Rectangle extends Shape{
+	
+//}
+
+//class Circle extends Shape{
+	
+//}
+
+//public class ClassCastException {
+//	public static void main(String[] args) {
+//		Rectangle r=new Rectangle();
+//		casting(r);
+//	}
+//	static void casting(Shape s) {
+//		Circle c=(Circle) s;
+//	}
+//}
+
+
+#correct
+package chap09.sec01.programming02;
+
+class Shape{
+	
+}
+class Rectangle extends Shape{
+	
+}
+class Circle extends Shape{
+	
+}
+
+public class ClassCastExceptionTest {
+	public static void main(String[] args) {
+		Rectangle r=new Rectangle();
+		try {
+			casting(r);
+		} catch(ClassCastException e) {
+			System.out.println("타입을 변환할 수 없습니다.");
+			e.printStackTrace();
+		}
+	}
+	static void casting(Shape s) throws ClassCastException {
+		Circle c=(Circle) s;
+	}
+}
+
