@@ -62,4 +62,36 @@ v2
 sort(x=d, decreasing=TRUE) #정상작동
 sort(x=d, TRUE) #정상작동
 sort(d, TRUE) #정상작동
-sort(TRUE,d) #오류발생 (매개변수의 순서가 잘못됨)
+#sort(TRUE,d) #오류발생 (매개변수의 순서가 잘못됨)
+
+d <- c(1,2,3,4,5,6,7,8,9)
+d>=5 
+d[d>5] #5보다 큰값
+sum(d>5) #5보다 큰 값의 개수를 출력 #벡터에 대한 sum이기 때문에(개수)
+sum(d[d>5]) #5보다 큰 값의 합계를 출력력 #참참참참의 요소에 대한 합
+d==5
+
+condi <- (d>5 & d<8) #조건을 변수에 저장
+d[condi] #조건에 맞는 값들을 선택
+
+ds <- c(90,85,70,84)
+my.info <- list(name='Tom',age=60, status=TRUE, score=ds)
+my.info #출력
+my.info[[1]] #첫 번째 값 출력
+my.info$name #리스트에서 값의 이름이 name인 값을 출력
+my.info[[4]] #리스트의 네 번째 값을 출력
+
+
+#팩터 : 문자형 데이터가 저장된 벡터의 일종
+#성별, 혈액형, 선호 정당 등과 같이 저장할 문자값들이 몇 종류로 정해져있을 때 팩터를 사용
+bt <- c('A','B','B','O','AB','A') #문자형 벡터 bt 정의
+bt.new <- factor(bt) #팩터 bt.new 정의
+bt #벡터 bt의 내용 출력
+bt.new #팩터 bt.new의 내용 출력
+bt[5] #벡터 bt의 5번째 값 출력
+bt.new[5] #팩터 bt.new의 5번째 값 출력
+levels(bt.new)  #팩터에 저장된 값을 종류를 출력
+as.integer(bt.new) #팩터의 문자값을 숫자로 바꾸어 출력
+bt.new[7] <- 'B' #팩터 bt.new 의 7번째에 'B' 저장 
+bt.new[8] <- 'C' #팩터 bt.new 의 8번째에 'C' 저장
+bt.new #팩터 bt.new의 내용 출력
