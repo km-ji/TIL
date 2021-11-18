@@ -21,7 +21,6 @@ import com.hanyang.addresslist.databinding.InputFragmentBinding;
 public class EditFragment extends Fragment {
     private EditFragmentBinding binding;
     private MainViewModel mViewModel;
-
     public static EditFragment newInstance() {
         return new EditFragment();
     }

@@ -36,9 +36,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return address.get(i);
-    }
+    public Object getItem(int i) { return address.get(i); }
 
     @Override
     public long getItemId(int i) {
@@ -58,6 +56,7 @@ public class CustomAdapter extends BaseAdapter {
                 AppDatabase.getInstance(context).getAddressInfoDao().deleteAddress(info);
             }
         });
+
         binding.btnCellModify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

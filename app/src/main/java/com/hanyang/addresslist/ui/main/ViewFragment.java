@@ -17,7 +17,6 @@ import com.hanyang.addresslist.R;
 public class ViewFragment extends Fragment {
 
     private MainViewModel mViewModel;
-
     public static ViewFragment newInstance() {
         return new ViewFragment();
     }

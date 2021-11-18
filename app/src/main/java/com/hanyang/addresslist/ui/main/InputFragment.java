@@ -29,7 +29,6 @@ public class InputFragment extends Fragment {
     private InputFragmentBinding binding;
     private MainViewModel mViewModel;
     private NavController controller;
-
     public static ViewFragment newInstance() {
         return new ViewFragment();
     }
