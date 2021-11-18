@@ -27,4 +27,3 @@ public interface AddressInfoDao {
     @Query("SELECT*FROM AddressInfo")
     public LiveData<List<AddressInfo>> getAddressLiveData();
 }
-
